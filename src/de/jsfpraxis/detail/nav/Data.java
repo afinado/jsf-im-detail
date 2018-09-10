@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class Data {
 
 	private static Logger logger = Logger.getLogger("de.jsfpraxis.detail.nav.Data");
