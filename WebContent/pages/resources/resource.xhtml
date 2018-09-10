@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- (c) Bernd MÃ¼ller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Versionierung von Bibliotheken</title>
+</h:head>
+<body style="width: 450px;">
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:panelGrid columns="3" rowClasses="odd,even" columnClasses="left,center,left">
+		<f:facet name="header">Versionierung von Bibliotheken</f:facet>
+		
+		<h:outputText value="library=&quot;images&quot; name=&quot;boy.png&quot;" />
+		<h:graphicImage library="images" name="boy.png" width="50" height="50" />
+		<h:outputText value="3_4_3.png" />
+	
+		<h:outputText value="library=&quot;images/1_0&quot; name=&quot;boy.png/1_1.png&quot;" />
+		<h:graphicImage library="images/1_0" name="boy.png/1_1.png" width="50" height="50" />
+		<h:outputText value="1_1.png" />
+		
+		<h:outputText value="library=&quot;images/1_0&quot; name=&quot;boy.png&quot;" />
+		<h:graphicImage library="images/1_0" name="boy.png" width="50" height="50" />
+		<h:outputText value="1_3.png" />
+
+		<h:outputText value="library=&quot;images/1_1&quot; name=&quot;boy.png/3_4_2.png&quot;" />
+		<h:graphicImage library="images/1_1" name="boy.png/3_4_2.png" width="50" height="50" />
+		<h:outputText value="3_4_2.png" />
+		
+		<h:outputText value="library=&quot;images/1_1&quot; name=&quot;boy.png&quot;" />
+		<h:graphicImage library="images/1_1" name="boy.png" width="50" height="50" />
+		<h:outputText value="3_4_3.png" />
+		
+	</h:panelGrid>
+</body>
+</html>

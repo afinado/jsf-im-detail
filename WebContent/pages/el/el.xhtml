@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<title>Übungen zur JSF-Expression-Language</title>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />	
+</head>
+
+<body>
+	<f:view>
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Zugriff auf Bean-Properties</f:facet>
+			<h:outputText value="#{elHandler.name}" />
+			<h:outputText value="#{elHandler['name']}" />
+			<h:outputText value="Dies sind tolle #{elHandler.name}" />
+			<h:outputText value="#{elHandler.array[0]}" />
+			<h:outputText value="#{elHandler.map['zwei']}" />
+			<h:outputText value="#{elHandler.map[elHandler.array[2]]}" />
+		</h:panelGrid>
+		
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Zugriff auf implizite EL-Objekte</f:facet>
+			<h:outputText value="User-Agent: #{header['User-Agent']}" />
+			<h:outputText value="Lokalisiert auf #{view.locale}" />
+			<h:outputText value="Zustand gespeichert auf #{initParam['javax.faces.STATE_SAVING_METHOD']}" />
+			<!--
+			<h:outputText value="Zu Testzwecken die 'view': #{view} #{view.class.canonicalName}" /> 
+			<h:outputText value="Zu Testzwecken der 'request': #{request} #{request.class.canonicalName}" />
+			<h:outputText value="Zu Testzwecken die 'session': #{session} #{session.class.canonicalName}" />
+			<h:outputText value="Zu Testzwecken die 'application': #{application} #{application.class.canonicalName}" />
+			 -->
+		</h:panelGrid>
+		
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Arithmetische Ausdrücke</f:facet>
+			<h:outputText value="#{17 + 4}" />
+			<h:outputText value="Das übernächste Jahr ist #{elHandler.jahr + 2}" />
+			<h:outputText
+				value="#{elHandler.jahr} ist #{((elHandler.jahr % 4) == 0 ? 'ein' : 'kein')} Schaltjahr" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Vergleichsausdrücke und logische Ausdrücke</f:facet>
+			<h:outputText value="#{'eins' == elHandler.array[0]}" />
+			<h:outputText value="#{2009 == elHandler.jahr}" />
+			<h:outputText value="#{'2009' == elHandler.jahr}" />
+			<h:outputText value="#{2008 == elHandler.jahr}" />
+			<h:outputText value="#{elHandler.jahr > 2000}" />
+			<h:outputText
+				value="#{elHandler.jahr > 2000 &amp;&amp; (elHandler.jahr %4 != 0)}" />
+			<!-- Fuehrt zu Fehler: 
+			<h:outputText
+				value="#{elHandler.jahr > 2000 && (elHandler.jahr %4 != 0)}" />
+			-->
+			<!-- 
+			<h:outputText
+				value="#{elHandler.jahr > 2000 and (elHandler.jahr %4 != 0)}" />
+			 -->
+		</h:panelGrid>
+
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Methodenaufrufe und Methoden mit Parameter</f:facet>
+			<h:outputText value="elHandler.methodWithOneParam('text'): #{elHandler.methodWithOneParam('text')}" />
+			<h:outputText value="elHandler.methodWithTwoParams('text', 127): #{elHandler.methodWithTwoParams('text', 127)}" />
+			<h:outputText value="List.size(): #{elHandler.list.size()}" />
+		</h:panelGrid>
+
+		
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Expression-Language in Java</f:facet>
+			<h:outputText value="#{elHandler.testAusdruck}" />
+		</h:panelGrid>
+		
+		
+		<h:panelGrid columns="1" rowClasses="odd,even">
+			<f:facet name="header">Lösungen der Aufgabe (und mehr)</f:facet>
+			<h:outputText value="Sprachen: #{headerValues['Accept-Language'][0]}" />
+			<h:outputText value="Übertragungs-Codierungen: #{headerValues['Accept-Encoding'][0]}" />
+			<h:outputText value="Zeichensatz-Codierungen: #{headerValues['Accept-Charset'][0]}" />
+		</h:panelGrid>
+		
+		
+		
+		<h:messages showDetail="true" />
+	</f:view>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+<head>
+	<title>Client- und Komponenten-IDs (Implizite Ids)</title>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+</head>
+
+<body>
+<f:view>
+	<h:form>
+		<h:outputText value="Bitte geben Sie einen Wert ein!" />
+		<h:panelGrid columns="2">
+			<h:outputLabel for="input" value="Eingabe: " />
+			<h:inputText id="input" value="#{demoHandler.eingabe}"/>
+			<h:commandButton value="Und ab ..." action="#{demoHandler.okWithoutId}"/>
+			<h:panelGroup />
+		</h:panelGrid>
+	</h:form>
+</f:view>
+</body>
+</html>

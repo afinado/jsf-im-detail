@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zur Navigation: View-Parameter</title>
+</head>
+
+<body style="width: 300px;">
+	<f:view>
+	
+		<f:metadata>
+            <f:viewParam name="param" value="#{data.wert}" />
+        </f:metadata>
+
+		<div>
+			Übergebener Parameter: #{data.wert}
+		</div>
+
+        <h:messages  />
+	
+	</f:view>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zur Navigation: Aufruf einer Seite mit View-Parameter</title>
+</head>
+
+<body>
+	<h:form>
+		<f:view>
+			<h:link outcome="view-parameter.xhtml" value="Link mit F-Parameter" includeViewParams="true">
+				<f:param name="fparam" value="Der-F-Param" />
+			</h:link>
+			#{' '}
+			<h:link outcome="view-parameter.xhtml" value="a" includeViewParams="true" />
+			<h:button outcome="view-parameter.xhtml" value="b" includeViewParams="true" />
+			<h:commandButton action="view-parameter.xhtml" value="Schaltfläche mit F-Param">
+				<f:param name="fparam" value="Der-F-Param" />
+			</h:commandButton>
+		</f:view>
+	</h:form>
+</body>
+</html>

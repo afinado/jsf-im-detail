@@ -1,0 +1,43 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Validiere Menü</title>
+</head>
+<body  style="width: 400px;">
+<f:view>
+	<h:form prependId="false">
+		<h:panelGrid columns="2">
+			<f:facet name="header">Validierung eines Drop-Down-Menüs</f:facet>
+			
+			<h:outputText value="Wählen Sie einen Wert zwischen #{eingabeHandler.min} und #{eingabeHandler.max}" />
+			<h:selectOneMenu id="zahlenauswahl" required="true"
+				value="#{eingabeHandler.menueauswahl}">
+				<f:selectItem itemValue="" itemLabel="" />
+				<f:selectItem itemValue="1" itemLabel="eins" />
+				<f:selectItem itemValue="2" itemLabel="zwei" />
+				<f:selectItem itemValue="3" itemLabel="drei" />
+				<f:selectItem itemValue="4" itemLabel="vier" />
+				<f:selectItem itemValue="5" itemLabel="fünf" />
+				<f:selectItem itemValue="6" itemLabel="sechs" />
+				<f:selectItem itemValue="7" itemLabel="sieben" />
+				<f:selectItem itemValue="8" itemLabel="acht" />
+				<f:selectItem itemValue="9" itemLabel="neun" />
+				<f:validateLongRange minimum="#{eingabeHandler.min}"
+					maximum="#{eingabeHandler.max}" />
+			</h:selectOneMenu>
+			<h:commandButton action="#{eingabeHandler.abschicken}"
+				value="Abschicken" />
+			<h:outputText value="Auswählt wurde: #{eingabeHandler.menueauswahl} " />
+		</h:panelGrid>
+		<h:messages showDetail="true" showSummary="false" />
+	</h:form>
+</f:view>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Fehlermeldungen</title>
+</head>
+<body style="width: 500px;">
+<f:view>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">Fehlermeldungen 2</f:facet>
+			
+			<h:outputLabel for="length" value="Text (3-7 Zeichen)" />
+			<h:panelGroup>
+				<h:inputText id="length" value="#{meldungenHandler.text}"
+						required="true" validator="#{meldungenHandler.validateText}">
+					<f:validateLength minimum="3" maximum="7" />
+				</h:inputText>
+				<h:message for="length" errorClass="meldung" infoClass="info" />
+			</h:panelGroup>
+		</h:panelGrid>
+		<h:commandButton action="fehlermeldungen-2.xhtml" value="Abschicken" />
+	</h:form>
+</f:view>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- (c) Bernd Mueller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Implizite Navigation (Von)</title>
+</head>
+
+<body>
+	<h:form id="form">
+		<h:commandButton value="implizit-nach" action="implizit-nach"/>
+		<br />
+		<h:commandButton value="implizit-nach.xhtml" action="implizit-nach.xhtml"/>
+		<br />
+		<h:commandButton value="implizit-nach.xhtml?faces-redirect=true" action="implizit-nach.xhtml?faces-redirect=true"/>
+		<br />
+		<h:commandButton value="implizit-nach.jsf" action="implizit-nach.jsf"/>
+		<br />
+		<h:commandButton value="implizit-nach.irgendwas" action="implizit-nach.irgendwas"/>
+		<br />
+		<h:commandButton value="Bean implizitNach()" action="#{implicitNavigation.implizitNach}"/>
+		<br />
+		<h:commandButton value="Bean implizitNachXhtml()" action="#{implicitNavigation.implizitNachXhtml}"/>
+		<br />
+		<h:commandButton value="Bean implizitNachXhtmlRedirect()" action="#{implicitNavigation.implizitNachXhtmlRedirect}"/>
+		<br />
+		<h:commandButton value="Bean implizitNachJsf()" action="#{implicitNavigation.implizitNachJsf}"/>
+		<br />
+		<h:commandButton value="Bean implizitNachIrgendwas()" action="#{implicitNavigation.implizitNachIrgendwas}"/>
+		<br />
+		<h:button value="implizit-nach" outcome="/pages/nav/implizit-nach.xhtml" />
+	</h:form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Das immediate-Attribut für Befehlskomponenten</title>
+</head>
+<body style="width: 380px;">
+<f:view>
+	<f:phaseListener type="de.jsfpraxis.detail.events.MyPhaseListener" />
+	<h:form id="form">
+		<h:panelGrid columns="2">
+			<f:facet name="header">Verwendung des immediate-Attributs</f:facet>
+			<h:outputLabel value="Obligatorische Daten:" for="data" />
+			<h:inputText id="data" value="#{iaHandler.data}" required="true" />
+			<h:panelGroup>
+				<h:commandButton action="#{iaHandler.speichern}" value="Speichern" />
+				<h:commandButton action="#{iaHandler.abbrechen}" value="Abbrechen" immediate="true"/>
+			</h:panelGroup>
+		</h:panelGrid>
+		<h:message for="data" />
+		<p>
+			Beim Klick auf 'Speichern' wird Fehlermeldung erzeugt, beim Klick
+			auf 'Abbrechen' nicht, da 'immediate' gesetzt.
+		</p>
+	</h:form>
+</f:view>
+</body>
+</html>

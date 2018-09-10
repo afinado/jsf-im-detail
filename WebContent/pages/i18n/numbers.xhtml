@@ -1,0 +1,31 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Lokalisierte Ziffern aus Java-Klasse</title>
+</head>
+
+<body style="width: 260px;">
+<f:view locale="de">
+	Die Lokalisierung ändern Sie in der JSF-Seite <br/>
+	mit &lt;f:view locale="en|de"&gt;
+	<h:panelGrid columns="2" rowClasses="odd,even">
+		<h:outputText value="1" /><h:outputText value="#{number._1}" />
+		<h:outputText value="2" /><h:outputText value="#{number._2}" />
+		<h:outputText value="3" /><h:outputText value="#{number._3}" />
+		<h:outputText value="4" /><h:outputText value="#{number._4}" />
+		<h:outputText value="5" /><h:outputText value="#{number._5}" />
+		<h:outputText value="6" /><h:outputText value="#{number._6}" />
+		<h:outputText value="7" /><h:outputText value="#{number._7}" />
+		<h:outputText value="8" /><h:outputText value="#{number._8}" />
+		<h:outputText value="9" /><h:outputText value="#{number._9}" />
+	</h:panelGrid>
+</f:view>
+</body>
+</html>

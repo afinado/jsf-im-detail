@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12354016927030" configfile="/jsf-im-detail/WebContent/WEB-INF/faces-config-nav.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/hauptseite" comment="Beispiele für alle relevanten View-to-View-Regeln (4.6)" x="122" y="178" id="pf12354017815251" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/pages/nav/hauptseite.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/ganzrot" x="122" y="562" id="pf12354017815269" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" path="/pages/nav/ganzrot.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/rot" x="122" y="1334" id="pf123540192315441" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" path="/pages/nav/rot.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/gelb" x="122" y="1721" id="pf123540192315442" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="/pages/nav/gelb.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/blau" x="122" y="2107" id="pf123540192315443" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" path="/pages/nav/blau.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/das-buch" x="122" y="2492" id="pf123540192315544" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" path="/pages/nav/das-buch.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/hauptseite" comment="Beispiele für alle relevanten View-to-View-Regeln (4.6)" id="pf12694367229780" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf12694367229781 pf12694367229782 pf12694367229783 pf12694367229784 pf12694367229785 pf12694367229786" inlinks="pf12694367229787 pf12694367229788" path="/pages/nav/hauptseite.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/ganzrot" id="pf12694367229789" referenceLink="//@navigationRule.1/@navigationCase.4/@toViewId|" inlinks="pf12694367229781 pf12694367229785" path="/pages/nav/ganzrot.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/rot" id="pf126943672297810" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf12694367229782" path="/pages/nav/rot.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/gelb" id="pf126943672297811" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" inlinks="pf12694367229783" path="/pages/nav/gelb.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/blau" id="pf126943672297812" referenceLink="//@navigationRule.1/@navigationCase.3/@toViewId|" inlinks="pf12694367229784" path="/pages/nav/blau.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/das-buch" id="pf126943672297813" referenceLink="//@navigationRule.1/@navigationCase.5/@toViewId|" inlinks="pf12694367229786" path="/pages/nav/das-buch.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/*" comment="Beispiel für Wildcard (4.6)" id="pf126943672298214" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf12694367229787" path="/pages/nav/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/nav/implizit-von" comment="XML geht vor impliziter Navigation" id="pf126943672298215" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf12694367229788" path="/pages/nav/implizit-von.xhtml"/>
+  <links id="pf12694367229781" target="pf12694367229789" source="pf12694367229780" fromaction="#{naviHandler.rot}"/>
+  <links id="pf12694367229782" target="pf126943672297810" source="pf12694367229780" outcome="rot"/>
+  <links id="pf12694367229783" target="pf126943672297811" source="pf12694367229780" outcome="gelb"/>
+  <links id="pf12694367229784" target="pf126943672297812" source="pf12694367229780" outcome="blau"/>
+  <links id="pf12694367229785" target="pf12694367229789" source="pf12694367229780" outcome="redirect" redirect="true"/>
+  <links id="pf12694367229786" target="pf126943672297813" source="pf12694367229780" outcome="das buch"/>
+  <links id="pf12694367229787" target="pf12694367229780" source="pf126943672298214" outcome="zurück"/>
+  <links id="pf12694367229788" target="pf12694367229780" source="pf126943672298215" outcome="implizit-nach"/>
+</pageflow:Pageflow>

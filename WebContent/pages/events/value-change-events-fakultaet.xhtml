@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zu Value-Change-Events: Fakultät</title>
+</head>
+
+<body style="width: 430px;">
+	<f:view>
+		<h:form id="form">
+			<h:panelGrid columns="2" rowClasses="odd,even">	
+				<h:panelGrid columns="1">
+					<h:selectOneMenu style="width: 100%" value="#{fakHandler.n}"
+						valueChangeListener="#{fakHandler.nChanged}">
+						<f:selectItems value="#{fakHandler.arguments}" />
+					</h:selectOneMenu>
+					<h:commandButton value="Berechne n!" />
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					<h:inputTextarea cols="40" rows="1" value="#{fakHandler.fakultaet}" styleClass="fakultaet"/>
+				</h:panelGrid>
+			</h:panelGrid>
+			<h:messages showDetail="true" />
+		</h:form>
+	</f:view>
+</body>
+</html>

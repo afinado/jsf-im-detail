@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<name>a</name>
+	
+	<!-- 
+	<application>
+		<message-bundle>de.jsfpraxis.detail.vc.meine-meldungen</message-bundle>
+	</application>
+	 -->
+	
+	<managed-bean>
+		<description>
+			Bean zur Demonstation von Ganzzahl-Konvertierungen (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>ganzeZahlenHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.GanzeZahlenHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Bean zur Demonstation von Bruch-Konvertierungen (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>bruecheHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.BruecheHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Bean zur Demonstation des DateTimeConverters (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>dtHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.DateTimeHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>	
+
+	<managed-bean>
+		<description>
+			Bean zur Demonstation des NumberConverters (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>numberHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.NumberHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Validierung von Eingaben (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>eingabeHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.EingabeHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Meldungen  (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>meldungenHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.MeldungenHandler</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Bean zur Ausgabe der Zeitzonen (Abschnitt 4.4 Validierung und Konverierung)
+		</description>
+		<managed-bean-name>zzHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.vc.ZeitzonenHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>	
+
+	<!-- 
+	<converter>
+		<converter-id>kreditkartenkonvertierer</converter-id>
+		<converter-class>de.jsfpraxis.detail.vc.KreditkartennummerConverter</converter-class>
+		<converter-for-class>de.jsfpraxis.detail.vc.Kreditkartennummer</converter-for-class>
+	</converter>
+	 -->
+	
+	<!-- 
+	<validator>
+		<validator-id>emailvalidierer</validator-id>
+		<validator-class>de.jsfpraxis.detail.vc.EmailValidator</validator-class>
+	</validator>
+	 -->
+
+</faces-config>

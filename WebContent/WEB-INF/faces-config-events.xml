@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+
+	<!-- Entfernen Sie den Kommentar, um im Log die Meldungen -->
+	<!-- des PhaseListeners zu sehen. -->
+	<!-- 
+	<lifecycle>
+		<phase-listener>
+			de.jsfpraxis.detail.events.MyPhaseListener
+		</phase-listener>
+	</lifecycle>
+	 --> 
+
+
+	<application>
+		<system-event-listener>
+			<system-eventlistener-class>javax.faces.event.PostConstructApplicationEvent</system-eventlistener-class>
+			<system-event-listener-class>de.jsfpraxis.detail.events.MySystemEventListener</system-event-listener-class>
+		</system-event-listener>
+	</application>
+
+
+	<managed-bean>
+		<description>
+			Bean als ActionEvent-Listener (Abschnitt 4.5 Event-Berarbeitung)
+		</description>
+		<managed-bean-name>aeHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.events.ActionEventHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Bean als ValueChangeEvent-Listener  (Abschnitt 4.5 Event-Berarbeitung)
+		</description>
+		<managed-bean-name>vceHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.events.ValueChangeEventHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>
+			Fakultät mit ValueChangeEvent (Abschnitt 4.5 Event-Berarbeitung)
+		</description>
+		<managed-bean-name>fakHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.events.FakultaetHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+
+</faces-config>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>#{mbHandler.title}</title>
+</head>
+
+<body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="1" rowClasses="odd,even">
+				<f:facet name="header">Einfacher Zugriff auf Properties (inkl. Typkonvertierung)</f:facet>
+				<h:outputText value="&#960; = #{mbHandler.pi}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="1">
+				<f:facet name="header">Listen-Property</f:facet>
+				<h:dataTable var="url" value="#{mbHandler.urls}" rowClasses="odd,even">
+					<f:facet name="header">
+						<h:outputText value="Wichtige URLs"	binding="#{mbHandler.ueberschrift}" />
+					</f:facet>
+					<h:column>
+						<h:outputText value="#{url}" />
+					</h:column>
+				</h:dataTable>
+			</h:panelGrid>
+
+			<h:panelGrid columns="1"  rowClasses="odd,even">
+				<f:facet name="header">Map als Managed-Bean</f:facet>
+				<h:outputText value="#{wichtigeUrls}" />
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+				<f:facet name="header">Zugriff auf Map-Entries</f:facet>
+				<h:panelGrid columns="2" rowClasses="odd,even">
+					<h:outputText value="Java Language Specification" />
+					<h:outputText value="#{wichtigeUrls['JLS']}" />
+					<h:outputText value="JSF Home" />
+					<h:outputText value="#{wichtigeUrls['JSF Home']}" />
+					<h:outputText value="SDK" />
+					<h:outputText value="#{wichtigeUrls['SDK']}" />
+					<h:outputText value="Das Buch" />
+					<h:outputText value="#{wichtigeUrls['Das Buch']}" />
+				</h:panelGrid>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1" rowClasses="odd,even">
+				<f:facet name="header">In <code>faces-config.xml</code> verwendeter EL-Ausdruck</f:facet>
+				<h:outputText value="URL des Buches: #{mb2Handler.urls['Das Buch']}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" rowClasses="odd,even">
+				<f:facet name="header">Mit neuer EL-Version Zugriff auf Methoden einer Map</f:facet>
+				Schlüssel:
+				<h:outputText value="#{wichtigeUrls.keySet()}" />
+				Werte:
+				<h:outputText value="#{wichtigeUrls.values()}" />
+			</h:panelGrid>
+			
+				<h:dataTable var="wert" value="#{wichtigeUrls.values()}" >
+					<h:column>Wert #{wert}</h:column>
+				</h:dataTable>
+			
+			
+			<h:panelGrid columns="1" rowClasses="odd,even">
+				<f:facet name="header">Vordefinierte Variablen</f:facet>
+				View-Id: #{view.viewId}
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+				<h:commandButton value="OK" action="#{mbHandler.ok}"/>
+			</h:panelGrid>
+		
+			<h:messages showDetail="true" />
+		</h:form>
+	</f:view>
+</body>
+</html>

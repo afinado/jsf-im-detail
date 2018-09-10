@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#nav#*" PATH="/pages/nav/*"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#nav#*:0" NAME="item"
+   PATH="/pages/nav/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="zurück::#pages#nav#hauptseite.xhtml"
+    NAME="output" PATH="/pages/nav/hauptseite.xhtml"
+    TARGET="rules:#pages#nav#hauptseite.xhtml" TITLE="zurück" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#nav#hauptseite.xhtml"
+  PATH="/pages/nav/hauptseite.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#nav#hauptseite.xhtml:0" NAME="item"
+   PATH="/pages/nav/hauptseite.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{naviHandler.rot}:#pages#nav#ganzrot.xhtml" NAME="output"
+    PATH="/pages/nav/ganzrot.xhtml"
+    TARGET="rules:#pages#nav#ganzrot.xhtml"
+    TITLE="#{naviHandler.rot}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="rot::#pages#nav#rot.xhtml" NAME="output1"
+    PATH="/pages/nav/rot.xhtml" TARGET="rules:#pages#nav#rot.xhtml"
+    TITLE="rot" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="gelb::#pages#nav#gelb.xhtml" NAME="output2"
+    PATH="/pages/nav/gelb.xhtml" TARGET="rules:#pages#nav#gelb.xhtml"
+    TITLE="gelb" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="blau::#pages#nav#blau.xhtml" NAME="output3"
+    PATH="/pages/nav/blau.xhtml" TARGET="rules:#pages#nav#blau.xhtml"
+    TITLE="blau" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="redirect::#pages#nav#ganzrot.xhtml"
+    NAME="output4" PATH="/pages/nav/ganzrot.xhtml"
+    TARGET="rules:#pages#nav#ganzrot.xhtml" TITLE="redirect" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="das buch::#pages#nav#das-buch.xhtml"
+    NAME="output5" PATH="/pages/nav/das-buch.xhtml"
+    TARGET="rules:#pages#nav#das-buch.xhtml" TITLE="das buch" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bedingt::#pages#nav#bedingt1.xhtml"
+    NAME="output6" PATH="/pages/nav/bedingt1.xhtml"
+    TARGET="rules:#pages#nav#bedingt1.xhtml" TITLE="bedingt" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bedingt::#pages#nav#bedingt2.xhtml"
+    NAME="output7" PATH="/pages/nav/bedingt2.xhtml"
+    TARGET="rules:#pages#nav#bedingt2.xhtml" TITLE="bedingt" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="::#pages#nav#bedingt3.xhtml" NAME="output8"
+    PATH="/pages/nav/bedingt3.xhtml"
+    TARGET="rules:#pages#nav#bedingt3.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#nav#ganzrot.xhtml"
+  PATH="/pages/nav/ganzrot.xhtml" SHAPE="528,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#das-buch.xhtml"
+  PATH="/pages/nav/das-buch.xhtml" SHAPE="528,625,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#rot.xhtml"
+  PATH="/pages/nav/rot.xhtml" SHAPE="528,289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#blau.xhtml"
+  PATH="/pages/nav/blau.xhtml" SHAPE="528,513,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#gelb.xhtml"
+  PATH="/pages/nav/gelb.xhtml" SHAPE="528,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#bedingt1.xhtml"
+  PATH="/pages/nav/bedingt1.xhtml" SHAPE="528,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#bedingt2.xhtml"
+  PATH="/pages/nav/bedingt2.xhtml" SHAPE="528,353,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#bedingt3.xhtml"
+  PATH="/pages/nav/bedingt3.xhtml" SHAPE="528,385,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

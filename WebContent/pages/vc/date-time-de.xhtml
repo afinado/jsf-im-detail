@@ -1,0 +1,117 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Der DateTimeConverter</title>
+</head>
+<body>
+	<f:view locale="de">
+	<h:form>
+		<h:panelGrid columns="2" rowClasses="odd,even">
+			<f:facet name="header">Der DateTimeConverter</f:facet>
+		
+			<h:outputText value="Attribute" style="font-weight: bold;"/>
+			<h:outputText value="Darstellung" style="font-weight: bold;" />
+			
+			<h:outputText value="ohne Attribute" />
+			<h:outputText value="#{dtHandler.date}" />
+			
+			<h:outputText value="type=&quot;date&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" />
+			</h:outputText>
+			
+			<h:outputText value="type=&quot;time&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="time" />
+			</h:outputText>
+			
+			<h:outputText value="type=&quot;both&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="both" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;both&quot; timeZone=&quot;America/Los_Angeles&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="both" timeZone="America/Los_Angeles"/>
+			</h:outputText>
+
+			<h:outputText value="type=&quot;both&quot; timeZone=&quot;Europe/Berlin&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="both" timeZone="Europe/Berlin"/>
+			</h:outputText>
+			
+			<h:outputText value="type=&quot;date&quot; dateStyle=&quot;short&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" dateStyle="short" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;date&quot; dateStyle=&quot;medium&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" dateStyle="medium" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;date&quot; dateStyle=&quot;long&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" dateStyle="long" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;date&quot; dateStyle=&quot;full&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" dateStyle="full" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;time&quot; dateStyle=&quot;short&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="time" dateStyle="short" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;time&quot; dateStyle=&quot;medium&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="time" dateStyle="medium" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;time&quot; dateStyle=&quot;long&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="time" dateStyle="long" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;time&quot; dateStyle=&quot;full&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="time" dateStyle="full" />
+			</h:outputText>
+
+			<h:outputText value="type=&quot;date&quot; pattern=&quot;dd.MM.yyyy&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+			</h:outputText>
+			
+			<h:outputText value="type=&quot;date&quot; pattern=&quot;dd. MMM yyyy&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" pattern="dd. MMM yyyy" />
+			</h:outputText>			
+
+			<h:outputText value="type=&quot;date&quot; pattern=&quot;'Heute,' EEEE 'der' dd. MMMM yyyy&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" pattern="'Heute,' EEEE 'der' dd. MMMM yyyy" />
+			</h:outputText>			
+
+			<h:outputText value="type=&quot;date&quot; pattern=&quot;dd.MM.yyyy G, HH:mm:ss:SSS&quot;" />
+			<h:outputText value="#{dtHandler.date}">
+				<f:convertDateTime type="date" pattern="dd.MM.yyyy G, HH:mm:ss:SSS" />
+			</h:outputText>
+
+
+
+		</h:panelGrid>
+		<h:messages showDetail="true" />
+	</h:form>
+</f:view>
+</body>
+</html>

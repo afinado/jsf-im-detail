@@ -1,0 +1,32 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<h:head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Programmatische Lokalisierung mit AJAX und lokalisierten Flaggen</title>
+</h:head>
+
+<h:body>
+	<f:view locale="#{myLocaleHandler.locale}">
+	<h:outputScript name="ajax.js" library="javax.faces" target="head"/>
+	<h:form id="form">
+		<h:commandButton id="change" value="ajax" actionListener="#{myLocaleHandler.toggle}" image="#{msg.flag}" >
+			<f:ajax render="form:out form:change form:b1 form:b2" />
+		</h:commandButton>
+		
+		<h:commandButton id="b1" value="#{msg.save}" style="width: 60px;" />
+		<h:commandButton id="b2" value="#{msg.delete}" style="width: 60px;" />
+		<h:commandButton id="b3" value="#{msg.cancel}" style="width: 60px;" />
+		
+		<h:outputText id="out" value="#{myLocaleHandler.locale}" />
+
+		<h:messages />
+	</h:form>
+	</f:view>
+</h:body>
+</html>

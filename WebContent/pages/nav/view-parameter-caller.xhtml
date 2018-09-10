@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zur Navigation: Aufruf einer Seite mit View-Parameter</title>
+</head>
+
+<body>
+		<f:view>
+			<h:link outcome="view-parameter-simple.xhtml" value="&lt;h:link&gt; mit Parameter 1234" includeViewParams="true">
+				<f:param name="param" value="1234" />
+			</h:link>
+			<br />
+			<br />
+			<h:button outcome="view-parameter-simple.xhtml" value="&lt;h:button&gt; mit Parameter 2345" includeViewParams="true">
+				<f:param name="param" value="2345" />
+			</h:button>
+		</f:view>
+
+</body>
+</html>

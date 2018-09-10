@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+
+	<managed-bean>
+		<description>Beispiele zur Navigation</description>
+		<managed-bean-name>naviHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.nav.NavigationsHandler</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<navigation-rule>
+		<description>Beispiele für alle relevanten View-to-View-Regeln</description>
+		<from-view-id>/pages/nav/hauptseite.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{naviHandler.rot}</from-action>
+			<to-view-id>/pages/nav/ganzrot.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>hauptseite</from-outcome>
+			<to-view-id>/pages/nav/hauptseite.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ganzrot</from-outcome>
+			<to-view-id>/pages/nav/ganzrot.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>rot</from-outcome>
+			<to-view-id>/pages/nav/rot.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>gelb</from-outcome>
+			<to-view-id>/pages/nav/gelb.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>blau</from-outcome>
+			<to-view-id>/pages/nav/blau.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>redirect</from-outcome>
+			<to-view-id>/pages/nav/ganzrot.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>das buch</from-outcome>
+			<to-view-id>/pages/nav/das-buch.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case><!-- Fuer Test Wert im Bean aendern -->
+			<from-outcome>bedingt</from-outcome>
+			<if>#{naviHandler.wert lt 100}</if>
+			<to-view-id>/pages/nav/bedingt1.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>bedingt</from-outcome>
+			<if>#{naviHandler.wert ge 100}</if>
+			<to-view-id>/pages/nav/bedingt2.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case><!-- Fuer 'null' als Action-Return-->
+			<if>#{naviHandler.wert lt 100}</if>
+			<to-view-id>/pages/nav/bedingt3.xhtml</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<description>Beispiel für Wildcard</description>
+		<from-view-id>/pages/nav/*</from-view-id>
+		<navigation-case>
+			<from-outcome>zurück</from-outcome>
+			<to-view-id>/pages/nav/hauptseite.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+<!-- 
+	<navigation-rule>
+		<description>XML geht vor impliziter Navigation</description>
+		<from-view-id>/pages/nav/implizit-von.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>implizit-nach</from-outcome>
+			<to-view-id>/pages/nav/hauptseite.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+ -->	
+
+	
+</faces-config>

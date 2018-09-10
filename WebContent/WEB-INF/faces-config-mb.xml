@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<name>a</name>
+	<managed-bean>
+		<description>
+			Einfache Managed-Bean (Abschnitt 4.3 Managed-Beans)
+		</description>
+		<managed-bean-name>mbHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.MBHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<description>
+				Der Titel der Seite
+			</description>
+			<property-name>title</property-name>
+			<value>Beispiel zu Managed-Beans</value>
+		</managed-property>
+		<managed-property>
+			<description>
+				Eine Zahl zur Demonstration der automatischen Konvertierung
+			</description>
+			<property-name>pi</property-name>
+			<value>3.1415</value>
+		</managed-property>
+		<managed-property>
+			<description>Wichtige URLs</description>
+			<property-name>urls</property-name>
+			<list-entries>
+				<value>http://java.sun.com/docs/books/jls/index.html</value>
+				<value>http://java.sun.com/j2ee/javaserverfaces</value>
+				<value>http://java.sun.com/javase</value>
+				<value>http://www.jsfpraxis.de</value>
+			</list-entries>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Eine Map als Managed-Bean (Abschnitt 4.3 Managed-Beans)
+		</description>
+		<managed-bean-name>wichtigeUrls</managed-bean-name>
+		<managed-bean-class>java.util.HashMap</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<map-entries>
+			<map-entry>
+				<key>JLS</key>
+				<value>http://java.sun.com/docs/books/jls/index.html</value>
+			</map-entry>
+			<map-entry>
+				<key>JSF Home</key>
+				<value>http://java.sun.com/j2ee/javaserverfaces</value>
+			</map-entry>
+			<map-entry>
+				<key>SDK</key>
+				<value>http://java.sun.com/javase</value>
+			</map-entry>
+			<map-entry>
+				<key>Das Buch</key>
+				<value>http://www.jsfpraxis.de</value>
+			</map-entry>
+		</map-entries>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Bean mit Managed-Bean-Property (Abschnitt 4.3 Managed-Beans)
+		</description>
+		<managed-bean-name>mb2Handler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.MB2Handler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>urls</property-name>
+			<value>#{wichtigeUrls}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>requestScopeHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.MBRequestScopeHandler</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>viewScopeHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.MBViewScopeHandler</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>sessionScopeHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.MBSessionScopeHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>componentBindingHandler</managed-bean-name>
+		<managed-bean-class>de.jsfpraxis.detail.mb.ComponentBindingHandler</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>	
+	
+</faces-config>

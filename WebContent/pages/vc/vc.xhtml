@@ -1,0 +1,41 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Ganze Zahlen</title>
+</head>
+<body style="width: 400px;">
+<f:view>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">Validierer und Konvertierer: Ganze Zahlen</f:facet>
+			
+			<h:outputLabel for="byteValue" value="Byte-Wert:" />
+			<h:inputText id="byteValue" value="#{ganzeZahlenHandler.byteValue}" />
+			
+			<h:outputLabel for="shortValue" value="Short-Wert:" />
+			<h:inputText id="shortValue" value="#{ganzeZahlenHandler.shortValue}" />
+
+			<h:outputLabel for="intValue" value="Int-Wert:" />
+			<h:inputText id="intValue" value="#{ganzeZahlenHandler.intValue}" />
+
+			<h:outputLabel for="longValue" value="Long-Wert:" />
+			<h:inputText id="longValue" value="#{ganzeZahlenHandler.longValue}" />
+
+			<h:outputLabel for="bigIntValue" value="BigInteger-Wert:" />
+			<h:inputText id="bigIntValue" value="#{ganzeZahlenHandler.bigIntValue}" />
+			
+			<h:commandButton value="Abschicken" action="#{ganzeZahlenHandler.abschicken}"/>
+			<h:panelGroup />
+		</h:panelGrid>
+		<h:messages showDetail="true" />
+	</h:form>
+</f:view>
+</body>
+</html>

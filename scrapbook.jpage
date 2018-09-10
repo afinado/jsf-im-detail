@@ -1,0 +1,1 @@
+new de.jsfpraxis.detail.vc.Kreditkartennummer("1234", "2345", "3456", "45a7")java.util.Arrays.asList(new String[] {"huhu"})"".matches(".+@.+")

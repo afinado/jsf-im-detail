@@ -1,0 +1,42 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Brüche</title>
+</head>
+<body>
+<f:view>
+	<h:form>
+		<h:panelGrid columns="3">
+			<f:facet name="header">Validierer und Konvertierer: Brüche</f:facet>
+		
+			<h:outputText value="Typ" style="font-weight: bold;"/>
+			<h:outputText value="Ein-/Ausgabe" style="font-weight: bold;"/>
+			<h:outputText value="Quadrat der Eingabe" style="font-weight: bold;"/>
+			
+			<h:outputLabel for="floatValue" value="Float-Wert:" />
+			<h:inputText id="floatValue" value="#{bruecheHandler.floatValue}" />
+			<h:outputText value="#{bruecheHandler.floatValueQuadrat}" />
+			
+			<h:outputLabel for="doubleValue" value="Double-Wert:" />
+			<h:inputText id="doubleValue" value="#{bruecheHandler.doubleValue}" />
+			<h:outputText value="#{bruecheHandler.doubleValueQuadrat}" />
+			
+			<h:outputLabel for="bigDecimalValue" value="BigDecimal-Wert:" />
+			<h:inputText id="bigDecimalValue" value="#{bruecheHandler.bigDecimalValue}" />
+			<h:outputText value="#{bruecheHandler.bigDecimalValueQuadrat}" />
+			
+			<h:commandButton value="Abschicken" action="#{bruecheHandler.abschicken}"/>
+			<h:panelGroup /><h:panelGroup />
+		</h:panelGrid>
+		<h:messages showDetail="true" />
+	</h:form>
+</f:view>
+</body>
+</html>

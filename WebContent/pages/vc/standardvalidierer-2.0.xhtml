@@ -1,0 +1,46 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Die Validierer</title>
+</head>
+<body style="width: 470px;">
+<f:view>
+	<h:form prependId="false">
+		<h:panelGrid columns="2">
+			<f:facet name="header">Standardvalidierer (ab 2.0)</f:facet>
+			
+			<h:outputText value="Validierer" style="font-weight: bold;" />
+			<h:outputText value="Eingabe" style="font-weight: bold;" />		
+
+			<span>&lt;f:validateRegex pattern=&quot;.+@.+\..+&quot; /&gt; E-Mail-1: </span>
+			<h:inputText id="email1" value="#{eingabeHandler.email1}" required="true">
+				<f:validateRegex pattern=".+@.+\..+" />
+			</h:inputText>
+
+			<span>&lt;f:validateRegex pattern=&quot;.+@.+\..+&quot; /&gt; E-Mail-2: </span>
+			<h:inputText id="email2" value="#{eingabeHandler.email2}">
+				<f:validateRequired />
+				<f:validateRegex pattern=".+@.+\..+" />
+			</h:inputText>
+			
+			<h:commandButton action="#{eingabeHandler.abschicken}" value="Abschicken" />
+		</h:panelGrid>
+		<h:messages showDetail="true" showSummary="false"/>
+	</h:form>
+</f:view>
+</body>
+</html>
+<!--
+	Fuer 
+		javax.faces.VALIDATE_EMPTY_FIELDS = true
+	und	 
+		javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL = true
+	ist bei leeren Eingaben das Verhalten identisch
+  -->

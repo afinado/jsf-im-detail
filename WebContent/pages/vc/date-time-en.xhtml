@@ -1,0 +1,39 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Der DateTimeConverter</title>
+</head>
+<body>
+<f:view locale="en">
+	<h:panelGrid columns="2" rowClasses="odd,even">
+		<f:facet name="header">DateTimeConverter (englisch)</f:facet>
+		
+		<h:outputText value="Ohne Attribute" />
+		<h:outputText value="#{dtHandler.date}">
+		</h:outputText>
+		
+		<h:outputText value="type=&quot;date&quot;" />
+		<h:outputText value="#{dtHandler.date}">
+			<f:convertDateTime type="date" />
+		</h:outputText>
+		
+		<h:outputText value="type=&quot;time&quot;" />
+		<h:outputText value="#{dtHandler.date}">
+			<f:convertDateTime type="time" />
+		</h:outputText>
+		
+		<h:outputText value="type=&quot;both&quot;" />
+		<h:outputText value="#{dtHandler.date}">
+			<f:convertDateTime type="both" />
+		</h:outputText>
+	</h:panelGrid>
+</f:view>
+</body>
+</html>

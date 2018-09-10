@@ -1,0 +1,54 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Bean-Validierung mit JSR-303</title>
+</head>
+<body style="width: 290px;">
+<f:view>
+	<h:form id="form">
+		
+			<h:panelGrid columns="2">
+				<f:facet name="header">Bean-Validierung eines Kunden</f:facet>
+			
+				<h:outputLabel value="Vorname" for="vor" />
+				<h:panelGroup>
+					<h:message for="vor" />
+					<h:inputText id="vor" value="#{kundeHandler.kunde.vorname}" />
+				</h:panelGroup>
+
+				<h:outputLabel value="Nachname" for="nach" />
+				<h:panelGroup>
+					<h:message for="nach" />
+					<h:inputText id="nach" value="#{kundeHandler.kunde.nachname}" />
+				</h:panelGroup>
+
+				<h:outputLabel value="Geburtsdatum" for="gebu" />
+				<h:panelGroup>
+					<h:message for="gebu" />
+					<h:inputText id="gebu" value="#{kundeHandler.kunde.geburtstag}">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+						<f:validateBean validationGroups="de.jsfpraxis.detail.vc.NichtVolljaehrigGruppe" />
+					</h:inputText>
+				</h:panelGroup>
+
+				<h:outputLabel value="Kreditlimit" for="limit" />
+				<h:panelGroup>
+					<h:message for="limit" />
+					<h:inputText id="limit" value="#{kundeHandler.kunde.kreditlimit}">
+						<f:validateBean validationGroups="de.jsfpraxis.detail.vc.NichtVolljaehrigGruppe" />
+					</h:inputText>
+				</h:panelGroup>
+
+				<h:commandButton action="#{kundeHandler.speichern}" value="Speichern" />
+			</h:panelGrid>
+	</h:form>
+</f:view>
+</body>
+</html>

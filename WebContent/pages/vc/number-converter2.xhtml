@@ -1,0 +1,30 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Der NumberConverter</title>
+</head>
+<body>
+<f:view>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">Test Währungseingabe</f:facet>
+
+			<h:outputText value="Wert" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" currencyCode="EUR"/>
+			</h:inputText>
+
+			<h:commandButton action="#{numberHandler.abschicken}" value="Abschicken" />
+		</h:panelGrid>
+		<h:messages showDetail="true" showSummary="false"/>
+	</h:form>
+</f:view>
+</body>
+</html>

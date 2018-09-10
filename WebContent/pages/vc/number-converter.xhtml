@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Validierer und Konvertierer: Der NumberConverter</title>
+</head>
+<body>
+<f:view>
+	<h:form>
+		<h:panelGrid columns="2" rowClasses="odd,even">
+			<f:facet name="header">Verwendung des &lt;convertNumber&gt;-Tags</f:facet>
+			
+			<h:outputText value="Attribute" style="font-weight: bold;" />
+			<h:outputText value="Darstellung" style="font-weight: bold;" />
+
+			<h:outputText value="ohne Attribute" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}" />
+
+			<h:outputText value="type=&quot;number&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="number" />
+			</h:inputText>
+
+			<h:outputText value="locale=&quot;en_US&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber locale="en_US" />
+			</h:inputText>
+
+			<h:outputText value="type=&quot;percent&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="percent" />
+			</h:inputText>
+
+			<h:outputText value="type=&quot;currency&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" />
+			</h:inputText>
+
+			<h:outputText value="type=&quot;currency&quot; currencyCode=&quot;EUR&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" currencyCode="EUR"/>
+			</h:inputText>
+
+			<h:outputText value="type=&quot;currency&quot; currencySymbol=&quot;€&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" currencySymbol="€"/>
+			</h:inputText>
+
+			<h:outputText value="type=&quot;currency&quot; currencyCode=&quot;USD&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" currencyCode="USD" />
+			</h:inputText>
+
+			<h:outputText value="type=&quot;currency&quot; currencyCode=&quot;USD&quot; locale=&quot;en-US&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber type="currency" currencyCode="USD" locale="en_US"/>
+			</h:inputText>
+
+			<h:outputText value="maxFractionDigits=&quot;1&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber maxFractionDigits="1" />
+			</h:inputText>
+
+			<h:outputText value="maxFractionDigits=&quot;1&quot; maxIntegerDigits=&quot;3&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber maxFractionDigits="1" maxIntegerDigits="3" />
+			</h:inputText>
+
+			<h:outputText value="pattern=&quot;###,###.##&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber pattern="###,###.##" />
+			</h:inputText>
+			
+			<h:outputText value="pattern=&quot;######## 'Stück'&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber pattern="######## 'Stück'" />
+			</h:inputText>
+
+			<h:outputText value="pattern=&quot;00000000 'Stück'&quot;" />
+			<h:inputText value="#{numberHandler.bigDecimalValue}">
+				<f:convertNumber pattern="00000000 'Stück'" />
+			</h:inputText>
+			
+			<h:commandButton action="#{numberHandler.abschicken}" value="Abschicken"/>
+			<h:panelGroup />
+		</h:panelGrid>
+		<h:messages showDetail="true" />
+		<h:messages />
+	</h:form>
+</f:view>
+</body>
+</html>

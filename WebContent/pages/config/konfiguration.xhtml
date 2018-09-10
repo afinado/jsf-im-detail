@@ -1,0 +1,64 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zur Konfiguration: Zugriff auf Servlet-Parameter</title>
+</head>
+
+<body style="width: 800px;">
+<f:view>
+	<h:form>
+		<f:event type="preRenderComponent" listener="#{configHandler.handleEvent}" />
+		
+		<h:panelGrid columns="4"  rowClasses="odd,even" border="1" cellpadding="5">
+		
+			<h:outputText value="Kontext-Parameter" style="font-weight: bold" />
+			<h:outputText value="initParam[...]" style="font-weight: bold" />
+			<h:outputText value="Methode (s.u.)" style="font-weight: bold" />
+			<h:outputText value="Methodenwert" style="font-weight: bold" />
+		
+			<h:outputText value="javax.faces.STATE_SAVING_METHOD" />
+			<h:outputText value="#{initParam['javax.faces.STATE_SAVING_METHOD']}" />
+			<h:outputText value="stateSavingMethod()" />
+			<h:outputText value="#{configHandler.stateSavingMethod}" />
+			 
+			<h:outputText value="javax.faces.CONFIG_FILES" />
+			<h:outputText value="#{initParam['javax.faces.CONFIG_FILES']}" />
+			<h:outputText value="---" />
+			<h:outputText value="---" />
+			
+			<h:outputText value="javax.faces.PROJECT_STAGE" />
+			<h:outputText value="#{initParam['javax.faces.PROJECT_STAGE']}" />
+			<h:outputText value="projectStage()" />
+			<h:outputText value="#{configHandler.projectStage}" />
+			
+			<h:outputText value="javax.faces.PARTIAL_STATE_SAVING" />
+			<h:outputText value="#{initParam['javax.faces.PARTIAL_STATE_SAVING']}" />
+			<h:outputText value="partialStateSaving()" />
+			<h:outputText value="#{configHandler.partialStateSaving}" />
+		</h:panelGrid>
+		
+		<br />
+		
+		<h:panelGrid columns="2"  rowClasses="odd,even" border="1" cellpadding="5">
+			<f:facet name="header">Verwendete Java-Methoden</f:facet>
+		
+			<h:outputText value="stateSavingMethod()" />
+			<h:outputText value="application.getStateManager().isSavingStateInClient(FacesContext.getCurrentInstance()) ? &#34;client&#34; : &#34;server&#34;" />
+			
+			<h:outputText value="projectStage()" />
+			<h:outputText value="application.getProjectStage().toString()" />			
+			
+			<h:outputText value="partialStateSaving()" />
+			<h:outputText value="FacesContext.getCurrentInstance().getAttributes().get(&#34;partialStateSaving&#34;).toString()" />
+		</h:panelGrid>
+	</h:form>
+</f:view>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>#{mbAnnotationHandler.title}</title>
+</head>
+
+<body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="1" rowClasses="odd,even">
+				<f:facet name="header">#{mbAnnotationHandler.title}</f:facet>
+				<h:panelGroup rendered="#{not empty requestScope.mbAnnotationHandler}">
+					Bean ist im Request-Scope
+				</h:panelGroup>
+				<h:panelGroup rendered="#{not empty viewScope.mbAnnotationHandler}">
+					Bean ist im View-Scope
+				</h:panelGroup>
+				<h:panelGroup rendered="#{not empty sessionScope.mbAnnotationHandler}">
+					Bean ist im Session-Scope
+				</h:panelGroup>
+				<h:panelGroup rendered="#{not empty applicationScope.mbAnnotationHandler}">
+					Bean ist im Application-Scope
+				</h:panelGroup>				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+				<f:facet name="header">Annotiertes Listen-Property</f:facet>
+				<h:dataTable var="url" value="#{mbAnnotationHandler.urls}" rowClasses="odd,even">
+					<f:facet name="header">Wichtige URLs</f:facet>
+					<h:column>
+						<h:outputText value="#{url}" />
+					</h:column>
+				</h:dataTable>
+			</h:panelGrid>
+	
+			<h:messages showDetail="true" />
+		</h:form>
+	</f:view>
+</body>
+</html>

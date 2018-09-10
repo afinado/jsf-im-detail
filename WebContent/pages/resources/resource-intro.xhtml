@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!-- Achtung: Es dürfen keine Bibliotheksversionen vorhanden sein! -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Basismechanismus Ressourcen</title>
+</h:head>
+<h:body style="width: 400px;">
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:panelGrid columns="2" rowClasses="odd,even">
+		<f:facet name="header">Basismechanismus Ressourcen</f:facet>
+		<h:outputText value="&lt;h:graphicImage value=&quot;/resources/images/girl-1.png&quot; /&gt;" />
+		<h:graphicImage value="/resources/images/girl-1.png" width="50" height="50" />
+		<h:panelGroup>
+			<h:outputText value="&lt;h:graphicImage value=&quot;&#x0023;" />
+			<h:outputText value="{resource['images:girl-2.png']}&quot; /&gt;" />
+		</h:panelGroup> 
+		<h:graphicImage value="#{resource['images:girl-2.png']}" width="50" height="50" />
+		<h:outputText value="&lt;h:graphicImage library=&quot;images&quot; name=&quot;girl-3.png&quot; /&gt;" />
+		<h:graphicImage library="images" name="girl-3.png" width="50" height="50" />
+		<!-- 
+		<img src="#{resource['images:girl-3.png']}" />
+		 --> 
+	</h:panelGrid>
+</h:body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Übungen zur Navigation: Hauptseite</title>
+</head>
+
+<body>
+	<f:view>
+		<h:form id="form">
+			<h:panelGrid columns="2">
+				<h:outputLabel for="eingabe" value="Eingabe (rot / gelb / blau):" />
+				<h:inputText id="eingabe" value="#{naviHandler.eingabe}" />
+				
+				<h:commandButton action="#{naviHandler.verteiler}" value="Abschicken" />
+				<h:outputText value="Beispiel View-to-View" />
+				
+				<h:commandButton action="#{naviHandler.rot}" value="Ganz rot" />
+				<h:outputText value="Beispiel &lt;from-action&gt;" />
+				
+				<h:commandButton action="redirect" value="Ganz rot" />
+				<h:outputText value="Beispiel &lt;redirect&gt;" />
+				
+				<h:commandButton action="ganzrot" value="Ganz rot" />
+				<h:outputText value="Beispiel View-Id" />
+				
+				<h:outputLink value="http://www.jsfpraxis.de">
+					<h:outputText value="Das Buch" />
+				</h:outputLink>
+				<h:outputText value="Einfacher HTML-Link" />
+				
+				<h:commandButton action="das buch" value="Das Buch" />
+				<h:outputText value="Gehe zum Buch" />
+				
+				<h:commandButton action="#{naviHandler.dasBuch}" value="Das Buch" />
+				<h:outputText value="Dito in Java" />
+				
+				<h:commandButton action="bedingt" value="Bedingt" />
+				<h:outputText value="Bedingte Navigation" />
+
+				<h:commandButton action="#{naviHandler.returnsNull}" value="Null-Action" />
+				<h:outputText value="Action-Methode gibt 'null' zurück" />
+				
+						
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</body>
+</html>

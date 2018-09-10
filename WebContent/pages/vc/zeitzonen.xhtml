@@ -1,0 +1,31 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+
+<head>
+	<link rel="stylesheet" href="#{request.contextPath}/css/style.css" type="text/css" />
+	<title>Zeitzonen</title>
+</head>
+<body>
+<f:view>
+	<h:dataTable styleClass="borderTable" rowClasses="odd,even"
+				var="zeitzone" value="#{zzHandler.zeitzonen}">
+		<f:facet name="header">Bekannte Zeitzonen</f:facet>
+		
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{zeitzone.ID}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">DisplayName</f:facet>
+			<h:outputText value="#{zeitzone.displayName}" />
+		</h:column>
+	</h:dataTable>
+</f:view>
+</body>
+</html>
