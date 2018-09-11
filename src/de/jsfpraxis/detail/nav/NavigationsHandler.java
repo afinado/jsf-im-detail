@@ -27,7 +27,7 @@ public class NavigationsHandler {
 			log.info("bitte nochmal");
 			eingabe = "bitte nochmal";
 		}
-		return "hauptseite";
+		return "/pages/nav/hauptseite.xhtml";
 	}
 	
 	public String rot() {
@@ -53,6 +53,7 @@ public class NavigationsHandler {
 	
 	
 	public String returnsNull() {
+		log.info("return null");
 		return null;
 	}
 	

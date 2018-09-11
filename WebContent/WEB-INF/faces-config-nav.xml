@@ -20,14 +20,6 @@
 			<to-view-id>/pages/nav/ganzrot.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>hauptseite</from-outcome>
-			<to-view-id>/pages/nav/hauptseite.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>ganzrot</from-outcome>
-			<to-view-id>/pages/nav/ganzrot.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
 			<from-outcome>rot</from-outcome>
 			<to-view-id>/pages/nav/rot.xhtml</to-view-id>
 		</navigation-case>
@@ -59,7 +51,7 @@
 			<to-view-id>/pages/nav/bedingt2.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case><!-- Fuer 'null' als Action-Return-->
-			<if>#{naviHandler.wert lt 100}</if>
+			<from-outcome>empty</from-outcome>
 			<to-view-id>/pages/nav/bedingt3.xhtml</to-view-id>
 		</navigation-case>
 		
