@@ -9,6 +9,7 @@ ext {
 	eclipselinkVersion = '2.7.3'
 	tomcatVersion = '9.0.11'
 	jsfVersion = '2.2.18'
+	hibernateValidatorVersion = '6.0.8.Final'
 }
 
 archivesBaseName = 'comedians'
@@ -47,7 +48,10 @@ dependencies {
 	runtime group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa.modelgen.processor', version: "${eclipselinkVersion}"
 	compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: "${eclipselinkVersion}"
 	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-	
+	compile group: 'javax.validation', name: 'validation-api', version: '2.0.0.Final'
+	compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: "${hibernateValidatorVersion}"
+	compile group: 'org.hibernate.validator', name: 'hibernate-validator-cdi', version: "${hibernateValidatorVersion}"
+		
 }
 
  

@@ -51,7 +51,7 @@
 			<to-view-id>/pages/nav/bedingt2.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case><!-- Fuer 'null' als Action-Return-->
-			<from-outcome>empty</from-outcome>
+			<from-outcome>null</from-outcome>
 			<to-view-id>/pages/nav/bedingt3.xhtml</to-view-id>
 		</navigation-case>
 		
